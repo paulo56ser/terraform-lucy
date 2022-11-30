@@ -7,15 +7,14 @@ terraform {
       version = "4.38.0"
     }
   }
+
+  backend "s3" {
+    bucket  = "tfstate-852582244253"
+    key     = "dev/03-data-sources-s3/terraform.tfstate"
+    region  = "us-east-1"
+  }
 }
 
 provider "aws" {
   region = var.aws_region
 }
-
-backend "s3" {
-    bucket  = "tfstate-968339500772"
-    key     = "dev/03-data-sources-s3/terraform.tfstate"
-    region  = "eu-central-1"
-    profile = "tf014"
-  }
